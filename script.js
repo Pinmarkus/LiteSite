@@ -9,21 +9,48 @@ document.addEventListener('DOMContentLoaded', function() {
     // Mobile menu toggle
     const menuToggle = document.querySelector('.menu-toggle');
     const techNav = document.querySelector('.tech-nav');
+    const body = document.body;
     
     if (menuToggle) {
-        menuToggle.addEventListener('click', function() {
-            techNav.classList.toggle('active');
+        menuToggle.addEventListener('click', () => {
             menuToggle.classList.toggle('active');
+            techNav.classList.toggle('active');
+            body.style.overflow = techNav.classList.contains('active') ? 'hidden' : '';
         });
     }
 
-    // Close mobile menu when clicking on a link
-    document.querySelectorAll('.tech-nav a').forEach(link => {
-        link.addEventListener('click', () => {
-            techNav.classList.remove('active');
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!menuToggle.contains(e.target) && !techNav.contains(e.target) && techNav.classList.contains('active')) {
             menuToggle.classList.remove('active');
+            techNav.classList.remove('active');
+            body.style.overflow = '';
+        }
+    });
+
+    // Close menu when clicking a link
+    const navLinks = document.querySelectorAll('.tech-nav .neon-link');
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            menuToggle.classList.remove('active');
+            techNav.classList.remove('active');
+            body.style.overflow = '';
         });
     });
+
+    // Handle touch events for better mobile experience
+    document.addEventListener('touchstart', function() {}, {passive: true});
+
+    // Optimize scroll performance
+    let scrollTimeout;
+    window.addEventListener('scroll', () => {
+        if (!scrollTimeout) {
+            scrollTimeout = setTimeout(() => {
+                scrollTimeout = null;
+                // Add your scroll-based animations here
+            }, 100);
+        }
+    }, { passive: true });
 
     // Testimonial slider
     const slides = document.querySelectorAll('.testimonial-slide');

@@ -1144,3 +1144,165 @@ textarea.neon-input {
     font-size: 1rem;
   }
 }
+
+/* Mobile Navigation */
+@media screen and (max-width: 768px) {
+    .tech-header {
+        padding: 1rem;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .tech-nav {
+        display: none;
+    }
+
+    .tech-nav.active {
+        display: flex;
+    }
+
+    .tech-nav ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+    }
+
+    .neon-link {
+        font-size: 1.2rem;
+    }
+
+    /* Hero Section Mobile Optimization */
+    .hero-section {
+        flex-direction: column;
+        padding: 2rem 1rem;
+        text-align: center;
+        min-height: auto;
+    }
+
+    .hero-content {
+        max-width: 100%;
+        margin-bottom: 2rem;
+    }
+
+    .hero-visual {
+        position: relative;
+        height: 300px;
+    }
+
+    .icon-wall {
+        position: relative;
+        top: 0;
+        right: 0;
+        transform: none;
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    /* Content Mobile Optimization */
+    .tech-main {
+        flex-direction: column;
+        padding: 1rem;
+    }
+
+    .feature-cards {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .services-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        padding: 1rem;
+    }
+
+    /* Contact Form Mobile Optimization */
+    .contact-container {
+        flex-direction: column;
+        padding: 1rem;
+    }
+
+    .contact-form, .contact-info {
+        width: 100%;
+        margin: 1rem 0;
+    }
+
+    .neon-input {
+        font-size: 16px; /* Prevents zoom on iOS */
+    }
+
+    /* Stats Section Mobile Optimization */
+    .stat-container {
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+        padding: 1rem;
+    }
+
+    /* Testimonials Mobile Optimization */
+    .testimonial-slider {
+        padding: 1rem;
+    }
+
+    .testimonial-content {
+        padding: 1rem;
+    }
+
+    /* Footer Mobile Optimization */
+    .footer-content {
+        padding: 1rem;
+        text-align: center;
+    }
+}
+
+/* Small Mobile Devices */
+@media screen and (max-width: 480px) {
+    .neon-text {
+        font-size: 1.5rem;
+    }
+
+    .neon-title {
+        font-size: 1.8rem;
+    }
+
+    .tech-description {
+        font-size: 1rem;
+    }
+
+    .button-group {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .tech-button {
+        width: 100%;
+        padding: 0.8rem;
+    }
+
+    .stat-container {
+        grid-template-columns: 1fr;
+    }
+
+    .social-links {
+        justify-content: center;
+    }
+}
+
+/* Touch Device Optimizations */
+@media (hover: none) {
+    .neon-link:hover::after {
+        width: 0;
+    }
+
+    .tech-button:hover {
+        transform: none;
+    }
+
+    .feature-card:hover {
+        transform: none;
+    }
+
+    .service-card:hover {
+        transform: none;
+    }
+}
