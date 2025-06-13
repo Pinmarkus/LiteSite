@@ -1,0 +1,534 @@
+:root {
+    --neon-blue: #00a2ff;
+    --neon-pink: #ff00ff;
+    --neon-purple: #9d00ff;
+    --neon-green: #00ff9d;
+    --neon-glow: 0 0 10px var(--neon-blue), 0 0 20px var(--neon-blue);
+    --dark-bg: #0a0a12;
+    --darker-bg: #050508;
+    --text-light: #e0e0e0;
+    --cyber-border: 1px solid var(--neon-blue);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--dark-bg);
+    color: var(--text-light);
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* Cyber Grid Background */
+.cyber-grid {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        linear-gradient(transparent 0%, rgba(0, 162, 255, 0.05) 2%, transparent 3%),
+        linear-gradient(90deg, transparent 0%, rgba(0, 162, 255, 0.05) 2%, transparent 3%);
+    background-size: 50px 50px;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.cyber-lines {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        linear-gradient(90deg, transparent 0%, rgba(0, 162, 255, 0.1) 50%, transparent 100%);
+    pointer-events: none;
+    z-index: -1;
+    animation: scan 8s linear infinite;
+}
+
+/* Layout */
+.cyber-container {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Sidebar */
+.cyber-sidebar {
+    width: 280px;
+    background: rgba(0, 0, 0, 0.8);
+    border-right: var(--cyber-border);
+    padding: 2rem;
+    position: fixed;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.sidebar-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.cyber-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 0.5rem;
+}
+
+.logo-text {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2rem;
+    color: var(--neon-blue);
+    text-shadow: var(--neon-glow);
+}
+
+.logo-subtitle {
+    font-family: 'Alumni Sans SC', sans-serif;
+    font-size: 0.9rem;
+    color: var(--neon-pink);
+    letter-spacing: 2px;
+}
+
+.cyber-nav ul {
+    list-style: none;
+}
+
+.cyber-link {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    color: var(--text-light);
+    text-decoration: none;
+    padding: 1rem;
+    margin-bottom: 0.5rem;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.cyber-link i {
+    color: var(--neon-blue);
+    font-size: 1.2rem;
+}
+
+.cyber-link:hover,
+.cyber-link.active {
+    background: rgba(0, 162, 255, 0.1);
+    color: var(--neon-blue);
+    text-shadow: 0 0 5px var(--neon-blue);
+}
+
+/* Main Content */
+.cyber-main {
+    flex: 1;
+    margin-left: 280px;
+    padding: 2rem;
+}
+
+/* Hero Section */
+.hero-section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 4rem 0;
+    position: relative;
+}
+
+.hero-content {
+    max-width: 600px;
+}
+
+.cyber-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 4rem;
+    color: var(--neon-blue);
+    text-shadow: var(--neon-glow);
+    margin-bottom: 1rem;
+    position: relative;
+}
+
+.cyber-subtitle {
+    font-size: 1.5rem;
+    color: var(--neon-pink);
+    margin-bottom: 2rem;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 1rem;
+}
+
+.cyber-button {
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 5px;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.cyber-button.primary {
+    background: var(--neon-blue);
+    color: white;
+    box-shadow: 0 0 10px var(--neon-blue);
+}
+
+.cyber-button.secondary {
+    background: transparent;
+    color: var(--neon-blue);
+    border: 2px solid var(--neon-blue);
+}
+
+.cyber-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 20px var(--neon-blue);
+}
+
+/* Cyber Cube Animation */
+.cyber-cube {
+    width: 200px;
+    height: 200px;
+    position: relative;
+    transform-style: preserve-3d;
+    animation: rotate 20s linear infinite;
+}
+
+.cube-face {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    border: 2px solid var(--neon-blue);
+    background: rgba(0, 162, 255, 0.1);
+    box-shadow: 0 0 20px var(--neon-blue);
+}
+
+.front { transform: translateZ(100px); }
+.back { transform: translateZ(-100px) rotateY(180deg); }
+.right { transform: translateX(100px) rotateY(90deg); }
+.left { transform: translateX(-100px) rotateY(-90deg); }
+.top { transform: translateY(-100px) rotateX(90deg); }
+.bottom { transform: translateY(100px) rotateX(-90deg); }
+
+/* About Section */
+.about-section {
+    padding: 6rem 0;
+}
+
+.section-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2.5rem;
+    color: var(--neon-blue);
+    text-align: center;
+    margin-bottom: 3rem;
+    text-shadow: var(--neon-glow);
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.cyber-text {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+.tech-stack {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+}
+
+.tech-item {
+    text-align: center;
+    padding: 1rem;
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid var(--neon-blue);
+    border-radius: 5px;
+}
+
+.tech-item i {
+    font-size: 2rem;
+    color: var(--neon-blue);
+    margin-bottom: 0.5rem;
+}
+
+/* Services Section */
+.services-section {
+    padding: 6rem 0;
+    background: var(--darker-bg);
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.service-card {
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid var(--neon-blue);
+    border-radius: 10px;
+    padding: 2rem;
+    transition: all 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 20px rgba(0, 162, 255, 0.3);
+}
+
+.card-icon {
+    font-size: 2.5rem;
+    color: var(--neon-blue);
+    margin-bottom: 1rem;
+}
+
+.service-features {
+    list-style: none;
+    margin-top: 1rem;
+}
+
+.service-features li {
+    margin-bottom: 0.5rem;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.service-features li::before {
+    content: '>';
+    position: absolute;
+    left: 0;
+    color: var(--neon-blue);
+}
+
+/* Work Section */
+.work-section {
+    padding: 6rem 0;
+}
+
+.work-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.work-item {
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    aspect-ratio: 16/9;
+}
+
+.work-image {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.work-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.work-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.work-item:hover .work-overlay {
+    opacity: 1;
+}
+
+.work-item:hover img {
+    transform: scale(1.1);
+}
+
+/* Contact Section */
+.contact-section {
+    padding: 6rem 0;
+    background: var(--darker-bg);
+}
+
+.contact-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 1rem;
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid var(--neon-blue);
+    border-radius: 5px;
+    color: var(--text-light);
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    box-shadow: 0 0 10px var(--neon-blue);
+}
+
+.form-group textarea {
+    min-height: 150px;
+    resize: vertical;
+}
+
+.contact-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+}
+
+.info-card {
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid var(--neon-blue);
+    border-radius: 10px;
+    padding: 2rem;
+    text-align: center;
+}
+
+.info-card i {
+    font-size: 2rem;
+    color: var(--neon-blue);
+    margin-bottom: 1rem;
+}
+
+/* Mobile Menu */
+.mobile-menu-toggle {
+    display: none;
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    z-index: 1000;
+    cursor: pointer;
+}
+
+.hamburger {
+    width: 30px;
+    height: 21px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.hamburger span {
+    width: 100%;
+    height: 3px;
+    background-color: var(--neon-blue);
+    box-shadow: 0 0 8px var(--neon-blue);
+    transition: all 0.3s ease;
+}
+
+/* Animations */
+@keyframes scan {
+    0% { transform: translateY(-100%); }
+    100% { transform: translateY(100%); }
+}
+
+@keyframes rotate {
+    0% { transform: rotateX(0) rotateY(0); }
+    100% { transform: rotateX(360deg) rotateY(360deg); }
+}
+
+/* Mobile Responsive */
+@media screen and (max-width: 1024px) {
+    .cyber-sidebar {
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+    }
+
+    .cyber-sidebar.active {
+        transform: translateX(0);
+    }
+
+    .cyber-main {
+        margin-left: 0;
+    }
+
+    .mobile-menu-toggle {
+        display: block;
+    }
+
+    .about-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .hero-section {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+    }
+
+    .cyber-title {
+        font-size: 3rem;
+    }
+
+    .tech-stack {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .cyber-title {
+        font-size: 2.5rem;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+    }
+
+    .cyber-button {
+        width: 100%;
+    }
+
+    .contact-info {
+        grid-template-columns: 1fr;
+    }
+} 

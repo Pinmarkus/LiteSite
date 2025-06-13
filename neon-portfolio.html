@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta name="theme-color" content="#000000">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>Neon Portfolio</title>
+    <link rel="stylesheet" href="neon-style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Alumni+Sans+SC:wght@400;600;700&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="neon-grid"></div>
+    
+    <header class="neon-header">
+        <div class="logo-container">
+            <div class="neon-logo">
+                <span class="logo-text">NEON</span>
+                <span class="logo-pulse">⚡</span>
+            </div>
+            <div class="logo-subtitle">DIGITAL CREATIONS</div>
+        </div>
+        <nav class="neon-nav">
+            <ul>
+                <li><a href="#" class="neon-nav-link">Home</a></li>
+                <li><a href="#services" class="neon-nav-link">Services</a></li>
+                <li><a href="#portfolio" class="neon-nav-link">Portfolio</a></li>
+                <li><a href="#contact" class="neon-nav-link">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="menu-toggle">
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero-section">
+            <div class="hero-content">
+                <h1 class="neon-heading" data-text="DIGITAL INNOVATION">DIGITAL INNOVATION</h1>
+                <p class="hero-text">
+                    We craft <span class="highlight">digital experiences</span> that 
+                    <span class="highlight">illuminate</span> your brand
+                </p>
+                <div class="cta-buttons">
+                    <button class="neon-button primary">Start Project</button>
+                    <button class="neon-button secondary">Learn More</button>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="floating-icons">
+                    <i class="fas fa-code"></i>
+                    <i class="fas fa-paint-brush"></i>
+                    <i class="fas fa-mobile-alt"></i>
+                    <i class="fas fa-server"></i>
+                </div>
+            </div>
+        </section>
+
+        <section id="services" class="services-section">
+            <h2 class="section-title">Our Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-globe"></i></div>
+                    <h3>Web Development</h3>
+                    <p>Custom websites built with modern technologies</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-mobile-alt"></i></div>
+                    <h3>Responsive Design</h3>
+                    <p>Perfect display on all devices</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-shopping-cart"></i></div>
+                    <h3>E-Commerce</h3>
+                    <p>Powerful online stores</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-rocket"></i></div>
+                    <h3>Performance</h3>
+                    <p>Lightning-fast loading times</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="portfolio" class="portfolio-section">
+            <h2 class="section-title">Featured Work</h2>
+            <div class="portfolio-grid">
+                <div class="portfolio-item">
+                    <img src="imagini/work1.jpg" alt="Project 1">
+                    <div class="portfolio-overlay">
+                        <h3>E-Commerce Platform</h3>
+                        <p>Web Development</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="imagini/work2.jpg" alt="Project 2">
+                    <div class="portfolio-overlay">
+                        <h3>Corporate Website</h3>
+                        <p>UI/UX Design</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="imagini/work3.jpg" alt="Project 3">
+                    <div class="portfolio-overlay">
+                        <h3>Mobile App</h3>
+                        <p>App Development</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="stats-section">
+            <div class="stats-container">
+                <div class="stat-item">
+                    <div class="stat-number" data-count="150">0</div>
+                    <div class="stat-label">Projects</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" data-count="98">0</div>
+                    <div class="stat-label">Clients</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" data-count="5">0</div>
+                    <div class="stat-label">Years</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact-section">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-container">
+                <form class="contact-form" action="https://formsubmit.co/mariuspintea08@gmail.com" method="POST">
+                    <input type="hidden" name="_subject" value="New message from Neon Portfolio">
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_next" value="thanks.html">
+                    
+                    <div class="form-group">
+                        <input type="text" name="name" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" name="email" placeholder="Your Email" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea name="message" placeholder="Your Message" required></textarea>
+                    </div>
+                    <button type="submit" class="neon-button primary">Send Message</button>
+                </form>
+                
+                <div class="contact-info">
+                    <div class="info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <p>Bucharest, Romania</p>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-phone"></i>
+                        <p>+37368859343</p>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-envelope"></i>
+                        <p>mariuspintea08@gmail.com</p>
+                    </div>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="neon-footer">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <span class="logo-text">NEON</span>
+                <span class="logo-pulse">⚡</span>
+            </div>
+            <p>Creating digital experiences that stand out</p>
+            <p class="copyright">© 2024 Neon Portfolio. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="neon-script.js"></script>
+</body>
+</html> 
